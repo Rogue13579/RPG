@@ -2,9 +2,7 @@
 <html>
   <head>
     <script src="JSimpleCanvas2D.js"></script>
-    <script src="JSimple.js"></script>
-    <script src="jQuery.js"></script>
-    <script src="Logic.js"></script> <!-- these are all the libraries that i am using they will be explained later in the series P.S. JSimple.js is my library that i made that just makes some functions simpler -->
+    <script src="jQuery.js"></script> <!-- these are all the libraries that i am using they will be explained later in the series P.S. JSimple.js is my library that i made that just makes some functions simpler -->
     <script src="RPG_Terrain_and_Entities.js"></script>
     <script src="RPG_Player.js"></script>
     <script src="JStorage.js"></script>
@@ -26,9 +24,13 @@
           renderTileMap(ctx, tileset, ts, mtos, mtot);
           player.render(ctx, tileset, ts)
         }
+        function gameClock(){
+          requestAnimationFrame(mtos, mtot);
+          render();
+        }
         tileset.onload = function(){
           render()
-          var animationInterval = setInterval(function(){requestAnimationFrame(mtos, mtot); render()}, 250);
+          var animationInterval = setInterval(function(){gameClock()}, 250);
         }
       }
       window.addEventListener('load', function(event) {
