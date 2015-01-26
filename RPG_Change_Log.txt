@@ -2,8 +2,9 @@
   -Changed Some files names
   -Moved Player function to a separate file and changed the function name to Player() to make it more readable
   -Terrain file became Terrain and Entities file
+  -Enemies file got deleted
   -animate() function became requestAnimationFrame()
   -Took out JSimple.js and Logic.js because they were uneeded
-  -Enemies file got deleted
+  -Changed the timed function so it times a gameClock() function which will be easier to manipulate
   -Made a Change Log
   -Posted to GitHub
