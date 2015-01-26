@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="JSimpleCanvas2D.js"></script>
+    <script src="JSimple.js"></script>
+    <script src="jQuery.js"></script>
+    <script src="Logic.js"></script> <!-- these are all the libraries that i am using they will be explained later in the series P.S. JSimple.js is my library that i made that just makes some functions simpler -->
+    <script src="RPG_Terrain_and_Entities.js"></script>
+    <script src="RPG_Player.js"></script>
+    <script src="JStorage.js"></script>
+    <style type="text/css">
+      body{ margin:40px; background:#FFF; }
+      #my_canvas{ background:#FFF; border:2px solid black; }
+    </style>
+    <script>
+      function initCanvas(){
+        var canvas = document.getElementById('my_canvas');
+        var ctx = canvas.getContext('2d');
+        var cW = ctx.canvas.width; var cH = ctx.canvas.height;
+        var tileset = new Image(); tileset.src = "tileset.png";
+        var ts = 70; // tile size
+        var mtos = 0; // map tile offset side
+        var mtot = 0; // map tile offset top
+        function render(){ // clears the canvas and spawns the player and the tiles
+          ctx.clearRect(0,0,cW,cH);
+          renderTileMap(ctx, tileset, ts, mtos, mtot);
+          player.render(ctx, tileset, ts)
+        }
+        tileset.onload = function(){
+          render()
+          var animationInterval = setInterval(function(){requestAnimationFrame(mtos, mtot); render()}, 250);
+        }
+      }
+      window.addEventListener('load', function(event) {
+        initCanvas();
+      });
+    </script>
+  </head>
+  <body>
+    <canvas id="my_canvas" width="630" height="630"></canvas> <!-- 630x630px -->
+  </body>
+</html>
