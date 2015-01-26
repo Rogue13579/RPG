@@ -1,0 +1,8 @@
+-v1.0
+  -Changed Some files names
+  -Moved Player function to a separate file and changed the function name to Player() to make it more readable
+  -Terrain file became Terrain and Entities file
+  -animate() function became requestAnimationFrame()
+  -Enemies file got deleted
+  -Made a Change Log
+  -Posted to GitHub
